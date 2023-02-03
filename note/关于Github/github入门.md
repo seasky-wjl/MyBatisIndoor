@@ -3,7 +3,6 @@
 ## 2023
 ### 2/3
 
-#### 重命名本地分支  
 + 根据分支名push到指定分支  
 ```  
 git push -u origin branchName
@@ -13,7 +12,7 @@ git push -u origin branchName
 ```  
 git branch  
 ```  
-
+#### 重命名本地分支
 + 在当前分支时  
 
 ```
