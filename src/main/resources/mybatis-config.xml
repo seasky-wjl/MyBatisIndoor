@@ -6,6 +6,9 @@
     <!--  指定使用LOG4J输出日志-->
     <settings>
         <setting name="logImpl" value="LOG4J"/>
+
+        <!--        此配置属性为true可以自动将以下划线命名的数据库列映射到Java对象的驼峰式命名属性中。-->
+        <!--        <setting name="mapUnderscoreToCamelCase" value="true"/>-->
     </settings>
 
     <!--  配置一个包名，以免MyBatis频繁使用全限定名称-->
@@ -30,7 +33,11 @@
 
     <!-- 配置一个包含完整类路径的CountryMapper.xml,这是一个MyBatis的SQL语句与映射配置文件-->
     <mappers>
-        <mapper resource="tk/mybatis/simple/mapper/CountryMapper.xml"></mapper>
+        <!--        这是单个配置-->
+        <!--        <mapper resource="tk/mybatis/simple/mapper/CountryMapper.xml"></mapper>-->
+
+        <!--直接使用整个包配置-->
+        <package name="tk.mybatis.simple.mapper"/>
     </mappers>
 
 
