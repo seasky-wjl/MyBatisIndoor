@@ -26,4 +26,12 @@ public interface UserMapper {
      * */
     List<SysUser> selectAll();
 
+    /**
+     * 新增用户
+     *
+     * @param sysUser
+     * @return
+     * */
+    int insert(SysUser sysUser);
+
 }
