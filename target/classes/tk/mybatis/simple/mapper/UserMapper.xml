@@ -16,11 +16,20 @@
     <select id="selectAll" resultType="tk.mybatis.simple.model.SysUser">
         select id,
                user_name,
-               user_password userPassword,
-               user_email userEmail,
-               user_info userInfo,
-               head_img headImg,
+               user_password,
+               user_email,
+               user_info,
+               head_img,
                create_time createTime
         from sys_user
     </select>
+    <insert id="insert">
+        insert into sys_user(
+                             id,user_name,user_password, user_email,
+                             user_info, head_img, create_time
+        )values(
+                #{id}, #{userName}, #{userPassword}, #{userEmail},
+                #{userInfo}, #{headImg, jdbcType=BLOB}, #{createTime, jdbcType= TIMESTAMP}
+                       )
+    </insert>
 </mapper>
