@@ -14,7 +14,7 @@ public class SysRole {
 
     private String roleName;
 
-    private Long enabled;
+    private int enabled;
 
     private Long createBy;
 
@@ -36,11 +36,11 @@ public class SysRole {
         this.roleName = roleName;
     }
 
-    public Long getEnabled() {
+    public int getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(Long enabled) {
+    public void setEnabled(int enabled) {
         this.enabled = enabled;
     }
 

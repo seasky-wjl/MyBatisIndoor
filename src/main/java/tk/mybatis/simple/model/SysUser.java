@@ -1,5 +1,6 @@
 package tk.mybatis.simple.model;
 
+
 import java.util.Date;
 
 /**
