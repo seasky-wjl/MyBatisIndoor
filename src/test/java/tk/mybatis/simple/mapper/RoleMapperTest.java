@@ -127,4 +127,50 @@ public class RoleMapperTest extends BaseMapperTest{
         }
     }
 
+    @Test
+    public void testUpdateById(){
+        SqlSession sqlSession = getSqlSession();
+
+        try {
+            // 获取Mapper接口
+            RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
+            // 生成新的SysRole对象
+            SysRole sysRole = new SysRole(1l,"DBA",1,2l,new Date());
+            // 获取更新语句的结果，结果为此次更新所影响的行数
+            int result = roleMapper.updateById(sysRole);
+            // 判断所影响的行数是否为1
+            Assert.assertEquals(1,result);
+            // 更新后的roleName是否为DBA
+            Assert.assertEquals("DBA",roleMapper.selectById(1l).getRoleName());
+        } finally {
+            // 回滚，以防对后面的测试产生影响
+            sqlSession.rollback();
+            // 关闭sqlSession
+            sqlSession.close();
+        }
+    }
+
+    @Test
+    public void testDeleteById(){
+        SqlSession sqlSession = getSqlSession();
+
+        try {
+            // 获取Mapper接口
+            RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
+            // 获取更新语句的结果，结果为此次更新所影响的行数
+            int result = roleMapper.deleteById(1l);
+            // 判断所影响的行数是否为1
+            Assert.assertEquals(1,result);
+            // 删除后再查询则为空
+            Assert.assertNull(roleMapper.selectById(1l));
+        } finally {
+            // 回滚，以防对后面的测试产生影响
+            sqlSession.rollback();
+            // 关闭sqlSession
+            sqlSession.close();
+        }
+    }
+
+
+
 }

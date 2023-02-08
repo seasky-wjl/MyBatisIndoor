@@ -254,8 +254,8 @@ public class UserMapperTest extends BaseMapperTest{
             // 不要忘记关闭sqlSession
             sqlSession.close();
         }
-
     }
+
 
 
 }
