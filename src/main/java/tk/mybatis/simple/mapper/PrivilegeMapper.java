@@ -1,7 +1,5 @@
 package tk.mybatis.simple.mapper;
 
-import netscape.security.Privilege;
-import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
 import tk.mybatis.simple.model.SysPrivilege;
 
