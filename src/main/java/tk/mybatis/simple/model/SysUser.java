@@ -11,6 +11,9 @@ import java.util.Date;
  */
 public class SysUser {
 
+    // 用户角色
+    private SysRole role;
+
     private Long id;
 
     private String userName;
@@ -24,6 +27,14 @@ public class SysUser {
     private byte[] headImg;
 
     private Date createTime;
+
+    public SysRole getRole() {
+        return role;
+    }
+
+    public void setRole(SysRole role) {
+        this.role = role;
+    }
 
     public Long getId() {
         return id;

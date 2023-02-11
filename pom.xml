@@ -66,6 +66,7 @@
             <plugins>
                 <plugin>
                     <dependencies>
+                        <!--  MyBatis生成器-->
                         <dependency>
                             <groupId>org.mybatis.generator</groupId>
                             <artifactId>mybatis-generator-core</artifactId>
