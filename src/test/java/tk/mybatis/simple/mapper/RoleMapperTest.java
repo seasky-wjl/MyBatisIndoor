@@ -3,6 +3,7 @@ package tk.mybatis.simple.mapper;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Assert;
 import org.junit.Test;
+import tk.mybatis.simple.model.SysPrivilege;
 import tk.mybatis.simple.model.SysRole;
 
 import java.util.Date;
@@ -172,5 +173,27 @@ public class RoleMapperTest extends BaseMapperTest{
     }
 
 
+    @Test
+    public void testSelectAllRoleAndPrivilege(){
+        SqlSession sqlSession = getSqlSession();
+
+        try {
+            // 获取Mapper接口
+            RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
+            List<SysRole> roleList = roleMapper.selectAllRoleAndPrivilege();
+            System.out.println("角色数：" + roleList.size());
+            for (SysRole role :
+                    roleList) {
+                System.out.println("用户名：" + role.getRoleName());
+                for (SysPrivilege privilege :
+                        role.getPrivilegeList()) {
+                    System.out.println("权限名：" + privilege.getPrivilegeName());
+                }
+            }
+        } finally {
+            // 关闭sqlSession
+            sqlSession.close();
+        }
+    }
 
 }

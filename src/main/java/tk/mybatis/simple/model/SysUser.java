@@ -2,6 +2,7 @@ package tk.mybatis.simple.model;
 
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author mwstart
@@ -13,6 +14,11 @@ public class SysUser {
 
     // 用户角色
     private SysRole role;
+
+    /**
+     * 用户角色的集合
+    */
+    private List<SysRole> roleList;
 
     private Long id;
 
@@ -28,9 +34,19 @@ public class SysUser {
 
     private Date createTime;
 
+    public List<SysRole> getRoleList() {
+        return roleList;
+    }
+
+    public void setRoleList(List<SysRole> roleList) {
+        this.roleList = roleList;
+    }
+
     public SysRole getRole() {
         return role;
     }
+
+
 
     public void setRole(SysRole role) {
         this.role = role;
