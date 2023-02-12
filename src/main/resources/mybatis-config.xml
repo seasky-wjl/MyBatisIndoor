@@ -12,7 +12,7 @@
 
         <!--   这个参数的含义是，当该参数设置为true时，对任意延迟属性的调用会使带有延迟加载属性的对象完整加载，反之每种属性将按需加载-->
         <!--   默认值为false，与书中不同，UserMapperTest.testSelectUserAndRoleByIdSelect()方法有具体的测试-->
-        <setting name="aggressiveLazyLoading" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
     </settings>
 
     <!--  配置一个包名，以免MyBatis频繁使用全限定名称-->

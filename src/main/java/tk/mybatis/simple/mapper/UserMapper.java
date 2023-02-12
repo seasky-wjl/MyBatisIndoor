@@ -176,4 +176,20 @@ public interface UserMapper {
      * @return
     */
     List<SysUser> selectAllUserAndRoles();
+
+    /**
+     * 通过嵌套查询获取指定用户的信息以及用户的角色和权限信息
+     *
+     * @param id
+     * @return
+    */
+    SysUser selectAllUserAndRolesSelect(Long id);
+
+    /**
+     * 使用存储过程查询用户信息
+     *
+     * @param user
+     * @return
+    */
+     void selectUserById(SysUser user);
 }

@@ -196,4 +196,64 @@ public class RoleMapperTest extends BaseMapperTest{
         }
     }
 
+    @Test
+    public void testSelectRoleByUserId(){
+        SqlSession sqlSession = getSqlSession();
+
+        try {
+            // 获取Mapper接口
+            RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
+            List<SysRole> roleList = roleMapper.selectRoleByUserId(1l);
+            System.out.println("角色数：" + roleList.size());
+            for (SysRole role :
+                    roleList) {
+                System.out.println("用户名：" + role.getRoleName());
+                for (SysPrivilege privilege :
+                        role.getPrivilegeList()) {
+                    System.out.println("权限名：" + privilege.getPrivilegeName());
+                }
+            }
+        } finally {
+            // 关闭sqlSession
+            sqlSession.close();
+        }
+    }
+
+    @Test
+    public void testSelectRoleByUserIdChoose(){
+        SqlSession sqlSession = getSqlSession();
+
+        try {
+            // 获取Mapper接口
+            RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
+            // 由于数据库数据enable都是1，所以给其中一个角色的enable赋值为0
+            SysRole role = roleMapper.selectById(2l);
+            role.setEnabled(0);
+            roleMapper.updateById(role);
+            // 获取用户1 的角色
+            List<SysRole> roleList = roleMapper.selectRoleByUserIdChoose(1l);
+            for (SysRole r :
+                    roleList) {
+                System.out.println("角色名：" + r.getRoleName());
+                if(r.getId().equals(1l)){
+                    // 第一个角色存在权限信息
+                    Assert.assertNotNull(r.getPrivilegeList());
+                }else if(r.getId().equals(2l)){
+                    // 第二个角色的权限为null
+                    Assert.assertNull(r.getPrivilegeList());
+                    continue;
+                }
+                for (SysPrivilege privilege :
+                        r.getPrivilegeList()) {
+                    System.out.println("权限名：" + privilege.getPrivilegeName());
+                }
+            }
+        } finally {
+            // 关闭sqlSession
+            sqlSession.close();
+        }
+    }
+
+
+
 }
