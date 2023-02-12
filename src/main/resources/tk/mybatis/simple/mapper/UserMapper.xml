@@ -258,6 +258,41 @@
         inner join sys_privilege p on p.id = rp.privilege_id
     </select>
 
+    <resultMap id="userRoleListMapSelect" extends="userMap"
+               type="tk.mybatis.simple.model.SysUser">
+        <collection property="roleList"
+                    fetchType="lazy"
+                    select="tk.mybatis.simple.mapper.RoleMapper.selectRoleByUserId"
+                    column="{userId=id}"/>
+    </resultMap>
+    <select id="selectAllUserAndRolesSelect" resultMap="userRoleListMapSelect">
+        select
+            u.id,
+            u.user_name,
+            u.user_password,
+            u.user_email,
+            u.user_info,
+            u.head_img,
+            u.create_time
+        from sys_user u
+        where u.id = #{id}
+
+    </select>
+
+    <!--    存储过程-->
+    <select id="selectUserById" statementType="CALLABLE" useCache="false">
+        {call select_user_by_id(
+            #{id, mode = IN},
+            #{userName, mode=OUT, jdbcType=VARCHAR},
+            #{userPassword, mode=OUT,jdbcType=VARCHAR},
+            #{userEmail, mode=OUT, jdbcType=VARCHAR},
+            #{usereInfo, mode=OUT, jdbcType=VARCHAR},
+            #{headImg, mode=OUT, jdbcType=BLOB, javaType=_byte[]},
+            #{createTime, mode=OUT, jdbcType=TIMESTAMP}
+            )
+        }
+    </select>
+
     <insert id="insert">
         insert into sys_user(
                              id,user_name,user_password, user_email,
