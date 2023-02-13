@@ -1,6 +1,21 @@
 # 随记
 
 ## 2023
+### 2/13  
+快捷键：  
+https://docs.github.com/zh/get-started/using-github/keyboard-shortcuts  
+ctrl+k 打开命令面板  
+
+阅读代码技巧：  
++ 在仓库详情页按下。（句号键），项目会在网页版VSCode中打开。  
+ 
+在线运行项目：  
++ 项目在网页版VsCode打开之后，在项目地址前加上：gitpod.io/#前缀
+例如：https://github.dev/seasky-wjl/MyBatisIndoor 加上前缀  https://gitpod.io/#https://github.com/seasky-wjl/MyBatisIndoor
+
+ 
+
+
 ### 2/3
 
 + 根据分支名push到指定分支  
