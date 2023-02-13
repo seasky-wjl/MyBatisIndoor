@@ -279,19 +279,51 @@
 
     </select>
 
-    <!--    存储过程-->
+    <!-- 调用存储过程，根据用户id查询用户其他信息-->
     <select id="selectUserById" statementType="CALLABLE" useCache="false">
         {call select_user_by_id(
             #{id, mode = IN},
             #{userName, mode=OUT, jdbcType=VARCHAR},
             #{userPassword, mode=OUT,jdbcType=VARCHAR},
             #{userEmail, mode=OUT, jdbcType=VARCHAR},
-            #{usereInfo, mode=OUT, jdbcType=VARCHAR},
+            #{userInfo, mode=OUT, jdbcType=VARCHAR},
             #{headImg, mode=OUT, jdbcType=BLOB, javaType=_byte[]},
             #{createTime, mode=OUT, jdbcType=TIMESTAMP}
             )
         }
     </select>
+
+    <!-- 简单根据用户名和分页参数进行查询，返回总数和分页数据-->
+    <select id="selectUserPage" statementType="CALLABLE" useCache="false"
+            resultMap="userMap">
+        {call select_user_page(
+            #{userName, mode=IN},
+            #{offset, mode=IN},
+            #{limit, mode=IN},
+            #{total, mode = OUT, jdbcType = BIGINT}
+            )
+        }
+    </select>
+
+    <!--  调用存储过程保存用户信息和角色关联信息-->
+    <insert id="insertUserAndRoles" statementType="CALLABLE">
+        {call insert_user_and_roles(
+                #{user.id, mode=OUT, jdbcType=BIGINT},
+                #{user.userName, mode = IN},
+                #{user.userPassword, mode = IN},
+                #{user.userEmail, mode = IN},
+                #{user.userInfo, mode = IN},
+                #{user.headImg, mode = IN ,jdbcType = BLOB},
+                #{user.createTime , mode = OUT, jdbcType = TIMESTAMP},
+                #{roleIds, mode = IN}
+            )
+            }
+    </insert>
+    <!--    调用存储过程删除用户信息和角色关联信息-->
+    <delete id="deleteUserById" statementType="CALLABLE">
+        {call delete_user_by_id(#{id, mode = IN})}
+    </delete>
+
 
     <insert id="insert">
         insert into sys_user(

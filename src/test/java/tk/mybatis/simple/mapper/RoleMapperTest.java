@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import tk.mybatis.simple.model.SysPrivilege;
 import tk.mybatis.simple.model.SysRole;
+import tk.mybatis.simple.type.Enabled;
 
 import java.util.Date;
 import java.util.List;
@@ -80,7 +81,7 @@ public class RoleMapperTest extends BaseMapperTest{
             // 获取Mapper接口
             RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
             // 创建新用户
-            SysRole sysRole1 = new SysRole(3l,"SVIP",1,null,new Date());
+            SysRole sysRole1 = new SysRole(3l,"SVIP", Enabled.enabled,null,new Date());
             // 调用,插入语句的返回结果是该操作所影响的行数
             int result = roleMapper.insert(sysRole1);
             // 确定此次插入是否影响了一行
@@ -109,7 +110,7 @@ public class RoleMapperTest extends BaseMapperTest{
             // 创建新用户
             SysRole sysRole1 = new SysRole();
             sysRole1.setRoleName("SVIP");
-            sysRole1.setEnabled(1);
+            sysRole1.setEnabled(Enabled.enabled);
             // 调用,插入语句的返回结果是该操作所影响的行数
             int result = roleMapper.insert(sysRole1);
             // 确定此次插入是否影响了一行
@@ -136,7 +137,7 @@ public class RoleMapperTest extends BaseMapperTest{
             // 获取Mapper接口
             RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
             // 生成新的SysRole对象
-            SysRole sysRole = new SysRole(1l,"DBA",1,2l,new Date());
+            SysRole sysRole = new SysRole(1l,"DBA",Enabled.enabled,2l,new Date());
             // 获取更新语句的结果，结果为此次更新所影响的行数
             int result = roleMapper.updateById(sysRole);
             // 判断所影响的行数是否为1
@@ -228,7 +229,7 @@ public class RoleMapperTest extends BaseMapperTest{
             RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
             // 由于数据库数据enable都是1，所以给其中一个角色的enable赋值为0
             SysRole role = roleMapper.selectById(2l);
-            role.setEnabled(0);
+            role.setEnabled(Enabled.disabled);
             roleMapper.updateById(role);
             // 获取用户1 的角色
             List<SysRole> roleList = roleMapper.selectRoleByUserIdChoose(1l);
@@ -249,6 +250,24 @@ public class RoleMapperTest extends BaseMapperTest{
                 }
             }
         } finally {
+            // 关闭sqlSession
+            sqlSession.close();
+        }
+    }
+
+    @Test
+    public void testUpdateById2(){
+        SqlSession sqlSession = getSqlSession();
+
+        try {
+            // 获取Mapper接口
+            RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
+            SysRole role = roleMapper.selectById(2l);
+            Assert.assertEquals(Enabled.enabled, role.getEnabled());
+            role.setEnabled(Enabled.disabled);
+            roleMapper.updateById(role);
+        } finally {
+            sqlSession.rollback();
             // 关闭sqlSession
             sqlSession.close();
         }

@@ -20,6 +20,12 @@
         <package name="tk.mybatis.simple.model"></package>
     </typeAliases>
 
+    <!--    配置这个处理器使用枚举的索引进行处理-->
+    <typeHandlers>
+        <typeHandler javaType="tk.mybatis.simple.type.Enabled"
+                     handler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
+    </typeHandlers>
+
     <!--    配置数据库连接-->
     <environments default="development">
         <environment id="development">
@@ -32,6 +38,8 @@
                 <property name="username" value="root"/>
                 <property name="password" value="123456"/>
             </dataSource>
+
+
         </environment>
     </environments>
 
@@ -43,6 +51,7 @@
         <!--直接使用整个包配置-->
         <package name="tk.mybatis.simple.mapper"/>
     </mappers>
+
 
 
 </configuration>

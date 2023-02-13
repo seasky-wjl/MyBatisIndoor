@@ -6,6 +6,7 @@ import org.junit.Test;
 import tk.mybatis.simple.model.SysPrivilege;
 import tk.mybatis.simple.model.SysRole;
 import tk.mybatis.simple.model.SysUser;
+import tk.mybatis.simple.type.Enabled;
 
 import javax.management.relation.Role;
 import java.util.*;
@@ -242,7 +243,7 @@ public class UserMapperTest extends BaseMapperTest{
             SysUser user = new SysUser();
             user.setId(1l);
             SysRole role = new SysRole();
-            role.setEnabled(1);
+            role.setEnabled(Enabled.enabled);
 
             List<SysRole> userList =
                     userMapper.selectRolesByUserAndRole(user, role);
@@ -578,5 +579,60 @@ public class UserMapperTest extends BaseMapperTest{
             sqlSession.close();
         }
     }
+
+    @Test
+    public void testSelectUerPage(){
+        // 获取sqlSession
+        SqlSession sqlSession = getSqlSession();
+
+        try {
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            Map<String, Object> params = new HashMap<>();
+            params.put("userName","ad");
+            params.put("offset",0);
+            params.put("limit",10);
+            List<SysUser> userList = userMapper.selectUserPage(params);
+            Long total = (Long)params.get("total");
+            System.out.println("总数：" + total);
+            for(SysUser user : userList){
+                System.out.println("用户名：" + user.getUserName());
+            }
+        } finally {
+
+            // 不要忘记关闭sqlSession
+            sqlSession.close();
+        }
+    }
+
+    @Test
+    public void testInsertUserAndRoles(){
+        // 获取sqlSession
+        SqlSession sqlSession = getSqlSession();
+
+        try {
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            SysUser user = new SysUser();
+            user.setUserName("test1");
+            user.setUserPassword("123456");
+            user.setUserEmail("test@mybatis.tk");
+            user.setUserInfo("test info");
+            user.setHeadImg(new byte[]{1,2,3});
+            // 插入用户信息和角色关联信息
+            userMapper.insertUserAndRoles(user, "1,2");
+            Assert.assertNotNull(user.getId());
+            Assert.assertNotNull(user.getCreateTime());
+            // 可以自行下面的commit后再查看数据库中的数据
+//            sqlSession.commit();
+            // 测试删除刚刚插入的数据
+            userMapper.deleteUserById(user.getId());
+
+        } finally {
+
+            // 不要忘记关闭sqlSession
+            sqlSession.close();
+        }
+    }
+
+
 
 }
