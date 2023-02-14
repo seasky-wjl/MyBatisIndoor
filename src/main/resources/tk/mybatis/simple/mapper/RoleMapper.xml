@@ -17,12 +17,16 @@
                          可读写的缓存会通过序列化返回缓存对象的拷贝，方式会慢一些，但是安全，因此默认是false。
 
     -->
-    <cache
-            eviction="FIFO"
-            flushInterval="6000"
-            size="512"
-            readOnly="false"
-        />
+<!--    <cache-->
+<!--            eviction="FIFO"-->
+<!--            flushInterval="6000"-->
+<!--            size="512"-->
+<!--            readOnly="false"-->
+<!--        />-->
+
+<!--    只通过设置type属性就可以使用ehCache缓存了，这时cache的其他属性就不起作用了，-->
+<!--    针对缓存的配置就都在ehcache.xml中。-->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
 
     <resultMap id="roleMap" type="tk.mybatis.simple.model.SysRole">
         <id property="id" column="id"/>

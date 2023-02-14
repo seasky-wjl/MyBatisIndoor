@@ -6,13 +6,25 @@
 
     <diskStore path="E:/ehcacheForMybatis" />
     <defaultCache
-        maxElemensMemory="3000"
-        external="false"
+        maxElementsInMemory="3000"
+        eternal="false"
         copyOnRead="true"
         copyOnWrite="true"
-        timeToidleSeconds="360"
+        timeToIdleSeconds="360"
         timeToLiveSeconds="360"
         overflowToDisk="true"
         diskPersistent="true"
     />
+
+    <cache
+        name="tk.mybatis.simple.mapper.RoleMapper"
+        maxElementsInMemory="3000"
+        eternal="false"
+        copyOnRead="true"
+        copyOnWrite="true"
+        timeToIdleSeconds="3600"
+        timeToLiveSeconds="3600"
+        overflowToDisk="true"
+        diskPersistent="true"
+        />
 </ehcache>
