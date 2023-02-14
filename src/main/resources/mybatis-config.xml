@@ -23,7 +23,7 @@
     <!--    配置这个处理器使用枚举的索引进行处理-->
     <typeHandlers>
         <typeHandler javaType="tk.mybatis.simple.type.Enabled"
-                     handler="org.apache.ibatis.type.EnumTypeHandler"/>
+                     handler="tk.mybatis.simple.type.EnabledTypeHandler"/>
     </typeHandlers>
 
     <!--    配置数据库连接-->
