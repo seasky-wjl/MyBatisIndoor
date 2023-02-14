@@ -1,6 +1,11 @@
 # 随记
 
-## 2023
+## 2023  
+### 2/14  
+Merge the incoming changes into the current branch:将传入的更改合并到当前分支中
+    
+Rebase the current branch on top of the incoming changes:在传入更改的基础上重新建立当前分支
+
 ### 2/13  
 快捷键：  
 https://docs.github.com/zh/get-started/using-github/keyboard-shortcuts  
