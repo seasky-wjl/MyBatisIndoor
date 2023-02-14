@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocattion="ehcache.xsd"
+         updateCheck="false" monitoring="autodetect"
+         dynamicConfig="true">
+
+    <diskStore path="E:/ehcacheForMybatis" />
+    <defaultCache
+        maxElemensMemory="3000"
+        external="false"
+        copyOnRead="true"
+        copyOnWrite="true"
+        timeToidleSeconds="360"
+        timeToLiveSeconds="360"
+        overflowToDisk="true"
+        diskPersistent="true"
+    />
+</ehcache>

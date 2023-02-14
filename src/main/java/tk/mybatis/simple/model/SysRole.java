@@ -2,6 +2,7 @@ package tk.mybatis.simple.model;
 
 import tk.mybatis.simple.type.Enabled;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -11,7 +12,9 @@ import java.util.List;
  *
  * 角色表：sys_role
  */
-public class SysRole {
+public class SysRole implements Serializable {
+
+    public static final long serialVersionUID = 6320941908222932112L;
 
     /**
      * 角色包含的权限列表

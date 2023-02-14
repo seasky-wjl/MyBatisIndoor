@@ -1,6 +1,5 @@
 package tk.mybatis.simple.mapper;
 
-import netscape.security.Privilege;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Assert;
 import org.junit.Test;

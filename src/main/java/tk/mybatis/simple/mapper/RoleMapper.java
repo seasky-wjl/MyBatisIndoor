@@ -9,6 +9,8 @@ import java.util.List;
  * @author mwstart
  * @create 2023-02-04-20:34
  */
+//参照缓存
+@CacheNamespaceRef(RoleMapper.class)
 public interface RoleMapper {
 
     @Select({

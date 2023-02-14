@@ -2,6 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="tk.mybatis.simple.mapper.RoleMapper">
 
+    <!-- 开启缓存只需要在xml中加上<cache/>元素即可-->
+    <!-- 可以通过缓存元素的属性来改配置，相关属性和可选值
+        1.eviction(收回策略)
+            LRU(最近最少使用)：移除最长时间不被使用的对象，这是默认值。
+            FIFO(先进先出)：按对象进入缓存的顺序来移除。
+            SOFT(软引用)：移除基于垃圾回收器状态和软引用规则的对象。
+            WEAK(弱引用)：
+        2.flushInterval(刷新间隔)。可以被设置为任意的正整数，而且它们代表一个合理的毫秒形式的时间段。
+                                默认情况不设置，即没有刷新间隔，缓存仅仅在调用语句时刷新。
+        3.size(引用数目)。可以被设置为任意正整数，要记住缓存的对象数目和运行环境的可用内存资源数目。默认值为1024.
+        4.readOnly(只读)。属性可以被设置为true或false。
+                         只读的缓存会给所有调用者返回缓存对象相同的实例，因此这些兑现不能被修改，这提供了很重要的性能优势。
+                         可读写的缓存会通过序列化返回缓存对象的拷贝，方式会慢一些，但是安全，因此默认是false。
+
+    -->
+    <cache
+            eviction="FIFO"
+            flushInterval="6000"
+            size="512"
+            readOnly="false"
+        />
+
     <resultMap id="roleMap" type="tk.mybatis.simple.model.SysRole">
         <id property="id" column="id"/>
         <result property="roleName" column="role_name"/>
