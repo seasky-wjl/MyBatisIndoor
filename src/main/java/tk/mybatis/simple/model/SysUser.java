@@ -1,6 +1,7 @@
 package tk.mybatis.simple.model;
 
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -10,7 +11,10 @@ import java.util.List;
  *
  * 用户表：sus_user
  */
-public class SysUser {
+public class SysUser implements Serializable{
+
+
+    private static final long serialVersionUID = -328602757171077630L;
 
     // 用户角色
     private SysRole role;

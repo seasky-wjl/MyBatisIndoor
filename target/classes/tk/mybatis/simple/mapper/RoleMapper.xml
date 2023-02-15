@@ -26,8 +26,10 @@
 
 <!--    只通过设置type属性就可以使用ehCache缓存了，这时cache的其他属性就不起作用了，-->
 <!--    针对缓存的配置就都在ehcache.xml中。-->
-    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+<!--    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>-->
 
+    <!--使用redis-cache的缓存实现-->
+    <cache type="org.mybatis.caches.redis.RedisCache"/>
     <resultMap id="roleMap" type="tk.mybatis.simple.model.SysRole">
         <id property="id" column="id"/>
         <result property="roleName" column="role_name"/>
