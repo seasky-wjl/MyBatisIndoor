@@ -158,8 +158,7 @@
 <!--&lt;!&ndash;        <result property="role.createBy" column="create_by"/>&ndash;&gt;-->
 <!--&lt;!&ndash;        <result property="role.createTime" column="role_create_time" jdbcType="TIMESTAMP"/>&ndash;&gt;-->
 
-
-<!--        &lt;!&ndash; 改成association的配置方式&ndash;&gt;-->
+    <!--        &lt;!&ndash; 改成association的配置方式&ndash;&gt;-->
 <!--        <association property="role" columnPrefix="role_" javaType="tk.mybatis.simple.model.SysRole">-->
 <!--            <result property="role.id" column="role_id"/>-->
 <!--            <result property="role.roleName" column="role_name"/>-->
