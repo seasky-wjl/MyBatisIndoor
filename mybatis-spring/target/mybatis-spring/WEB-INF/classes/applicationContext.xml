@@ -22,4 +22,34 @@
         <property name="password" value="123456"/>
     </bean>
 
+    <!--SqlSessionFactory是用于创建SqlSessionFactory的-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mapperLocations">
+            <array>
+                <value>classpath:tk/mybatis/**/mapper/*.xml</value>
+            </array>
+        </property>
+        <property name="typeAliasesPackage" value="tk.mybatis.web.model"/>
+    </bean>
+
+    <!--通过MapperScannerConfigurer类自动扫描所有的Mapper接口，使用时可以直接自动注入接口。-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="addToConfig" value="true"/>
+        <property name="basePackage" value="tk.mybatis.**.mapper"/>
+    </bean>
+
 </beans>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!--  指定使用LOG4J输出日志-->
+        <setting name="logImpl" value="LOG4J"/>
+
+        <!--  此配置属性为true可以自动将以下划线命名的数据库列映射到Java对象的驼峰式命名属性中。-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+
+        <!--   这个参数的含义是，当该参数设置为true时，对任意延迟属性的调用会使带有延迟加载属性的对象完整加载，反之每种属性将按需加载-->
+        <!--   默认值为false，与书中不同，UserMapperTest.testSelectUserAndRoleByIdSelect()方法有具体的测试-->
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
+
+    <!--  配置一个包名，以免MyBatis频繁使用全限定名称-->
+    <typeAliases>
+        <package name="tk.mybatis.simple.model"></package>
+    </typeAliases>
+
+    <!--    配置这个处理器使用枚举的索引进行处理-->
+    <typeHandlers>
+        <typeHandler javaType="tk.mybatis.simple.type.Enabled"
+                     handler="tk.mybatis.simple.type.EnabledTypeHandler"/>
+    </typeHandlers>
+
+    <!--    配置数据库连接-->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC">
+                <property name="" value=""/>
+            </transactionManager>
+            <dataSource type="UNPOOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"></property>
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatis"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+
+
+        </environment>
+    </environments>
+
+    <!-- 配置一个包含完整类路径的CountryMapper.xml,这是一个MyBatis的SQL语句与映射配置文件-->
+    <mappers>
+        <!--        这是单个配置-->
+        <!--        <mapper resource="tk/mybatis/simple/mapper/CountryMapper.xml"></mapper>-->
+
+        <!--直接使用整个包配置-->
+        <package name="tk.mybatis.simple.mapper"/>
+    </mappers>
+
+
+
+</configuration>

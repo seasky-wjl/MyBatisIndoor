@@ -42,6 +42,6 @@ public class DictServiceImpl implements DictService {
 
     @Override
     public boolean deleteById(Long id) {
-        return false;
+        return dictMapper.deleteById(id) == 1;
     }
 }
