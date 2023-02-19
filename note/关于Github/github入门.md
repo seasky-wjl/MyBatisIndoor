@@ -1,6 +1,12 @@
 # 随记
 
 ## 2023  
+### 2/19  
+git报错 warning: LF will be replaced by CRLF in  
++ 原因：查阅资料后了解到具体原因是linux和Unix系统的换行符与win系统的换行符不同在转换的时候会发生错误，但是Git 可以在你提交时自动地把回车（CR）和换行（LF）转换成换行（LF），而这个功能是默认开启的，所以即使当你没有修改代码的时候他也会提示你warning: LF will be replaced by CRLF in即警告：LF 将被 CRLF 替换。  
++ 解决：git config --global core.autocrlf false (全局有效）
+  git config core.autocrlf false (仅对当前git仓库有效）
+
 ### 2/14  
 Merge the incoming changes into the current branch:将传入的更改合并到当前分支中
     

@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/MyBatisIndoor.iml" filepath="$PROJECT_DIR$/.idea/MyBatisIndoor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis-spring/mybatis-spring.iml" filepath="$PROJECT_DIR$/mybatis-spring/mybatis-spring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis-spring-boot/mybatis-spring-boot.iml" filepath="$PROJECT_DIR$/mybatis-spring-boot/mybatis-spring-boot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/simple/simple.iml" filepath="$PROJECT_DIR$/simple/simple.iml" />
     </modules>
   </component>
 </project>
