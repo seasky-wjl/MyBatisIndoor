@@ -32,7 +32,7 @@ to page_53
 ### 2/18  
 做了部分第6章的笔记，第9章test完成大部分  
 ### 2/19  
-第10章test写完了，但测试不成功，集成springboot之后，并依赖simple后，项目怎么也跑步起来了。  
+第10章test写完了，但测试不成功，mybatis集成springboot，并依赖之前的simple后，项目怎么也跑步起来了。  
 
 
 
