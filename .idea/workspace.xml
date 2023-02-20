@@ -11,7 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="67f5cc7e-9dea-41f1-ad02-77c69e7fafce" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mybatis-spring/mybatis-spring.iml" beforeDir="false" afterPath="$PROJECT_DIR$/mybatis-spring/mybatis-spring.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/note/Mybatis入门/第6章.md" beforeDir="false" afterPath="$PROJECT_DIR$/note/Mybatis入门/第6章.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,19 +85,6 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Spring Boot.Application">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CacheTest.testL2Cache" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="simple" />
       <extension name="coverage">
@@ -254,9 +242,9 @@
       <item itemvalue="JUnit.CacheTest.testL2Cache" />
       <item itemvalue="JUnit.CountryMapperTest.testSelectAll" />
       <item itemvalue="JUnit.UserMapperTest.testSelectAll" />
+      <item itemvalue="JUnit.PrivilegeMapperTest.testSelectPrivilegeByRoleId" />
       <item itemvalue="Spring Boot.Application" />
       <item itemvalue="Tomcat Server.Tomcat 8.5.571" />
-      <item itemvalue="JUnit.PrivilegeMapperTest.testSelectPrivilegeByRoleId" />
     </list>
     <recent_temporary>
       <list>
@@ -281,6 +269,7 @@
       <workItem from="1676768977946" duration="103000" />
       <workItem from="1676796486656" duration="420000" />
       <workItem from="1676797173498" duration="8778000" />
+      <workItem from="1676879511739" duration="3238000" />
     </task>
     <servers />
   </component>
@@ -297,6 +286,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
