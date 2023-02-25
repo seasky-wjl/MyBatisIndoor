@@ -266,7 +266,23 @@
       <workItem from="1676796486656" duration="420000" />
       <workItem from="1676797173498" duration="8778000" />
       <workItem from="1676879511739" duration="4103000" />
+      <workItem from="1677323887018" duration="276000" />
     </task>
+    <task id="LOCAL-00001" summary="在第1章中加了一些随笔">
+      <created>1677324107314</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1677324107314</updated>
+    </task>
+    <task id="LOCAL-00002" summary="在第1章中加了一些随笔">
+      <created>1677324123457</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1677324123457</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,6 +299,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="在第1章中加了一些随笔" />
+    <option name="LAST_COMMIT_MESSAGE" value="在第1章中加了一些随笔" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
