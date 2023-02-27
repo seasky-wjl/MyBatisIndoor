@@ -29,6 +29,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LogFilters">
@@ -84,17 +89,6 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="JUnit.CacheTest.testL2Cache">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="CacheTest.testL2Cache" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="simple" />
       <extension name="coverage">
@@ -282,6 +276,7 @@
       <workItem from="1676879511739" duration="4103000" />
       <workItem from="1677323887018" duration="9484000" />
       <workItem from="1677408533624" duration="10515000" />
+      <workItem from="1677500702412" duration="2102000" />
     </task>
     <task id="LOCAL-00001" summary="在第1章中加了一些随笔">
       <created>1677324107314</created>
@@ -332,7 +327,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="在第1章中加了一些随笔" />
     <MESSAGE value="finish chapter 6 notes." />
-    <option name="LAST_COMMIT_MESSAGE" value="finish chapter 6 notes." />
+    <MESSAGE value="doing notes to page 209" />
+    <option name="LAST_COMMIT_MESSAGE" value="doing notes to page 209" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
